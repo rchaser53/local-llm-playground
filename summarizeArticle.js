@@ -3,9 +3,15 @@ const cheerio = require('cheerio');
 
 /**
  * 指定されたURLの記事を取得し、本文を抽出し、ローカルLLMに問い合わせて要約をコンソールに出力する関数。
+ * コマンドライン引数からURLを受け取ることを想定しています。
  * @param {string} url - 要約対象のウェブサイトのURL
  */
 async function summarizeArticle(url) {
+    if (!url) {
+        console.error("エラー: 要約対象のURLが指定されていません。");
+        console.error("使用方法: node summarizeArticle.js <URL>");
+        return;
+    }
     console.log(`\n--- 記事の読み込みと要約を開始します: ${url} ---`);
 
     try {
@@ -94,10 +100,13 @@ async function callLlmApi(text, prompt) {
     }
 }
 
-// --- 実行例 ---
-// **注意: このスクリプトを実行する前に、npm install axios cheerio が必要です。**
-// また、ローカルLLMが指定されたURL (LLM_API_URL) で待ち受けられている必要があります。
-const TARGET_URL = "https://pnpm.io/blog/releases/11.0"; 
+
+
+
+
+// --- メイン実行ロジック ---
+const targetUrl = process.argv[2]; // コマンドライン引数からURLを取得
 
 // スクリプト実行
-summarizeArticle(TARGET_URL);
+
+summarizeArticle(targetUrl);
