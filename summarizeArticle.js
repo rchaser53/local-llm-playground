@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const config = require('./config');
 
 /**
  * 指定されたURLの記事を取得し、本文を抽出し、ローカルLLMに問い合わせて要約をコンソールに出力する関数。
@@ -73,7 +74,7 @@ async function callLlmApi(text, prompt) {
     console.log("\n[LLM処理] ローカルLLM APIに問い合わせを行います...");
     
     // ★★★ ここを実際のローカルLLMのAPIエンドポイントに変更してください ★★★
-    const LLM_API_URL = "http://localhost:11434/api/generate"; // 例: Ollamaのエンドポイント
+    const LLM_API_URL = config.llmApiUrl;
     
     const payload = {
         model: config.modelName, // 使用モデル名
