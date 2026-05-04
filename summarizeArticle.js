@@ -76,7 +76,7 @@ async function callLlmApi(text, prompt) {
     const LLM_API_URL = "http://localhost:11434/api/generate"; // 例: Ollamaのエンドポイント
     
     const payload = {
-        model: "gemma4:e4b", // 使用モデル名
+        model: config.modelName, // 使用モデル名
         prompt: `${prompt}\n\n--- 記事本文 ---\n${text}`,
         stream: false // ストリーミングを無効にする
     };

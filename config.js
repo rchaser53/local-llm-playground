@@ -1,0 +1,19 @@
+/**
+ * 設定ファイル
+ * 記事の要約処理で使用する各種設定値や定数を定義します。
+ * 
+ * 変更が必要な項目:
+ * - modelName: 使用するローカルLLMのモデル名を指定します。
+ * - llmApiUrl: LLMのAPIエンドポイントURLを指定します。
+ */
+
+module.exports = {
+    // 使用するモデル名 (例: "gemma:2b", "llama3:8b")
+    modelName: "gemma4:e4b", 
+    
+    // LLM APIのベースURL (例: Ollama, vLLMなど)
+    llmApiUrl: "http://localhost:11434/api/generate",
+    
+    // その他、将来的に必要になる設定を追加できます
+    // 例: timeout: 30000
+};
