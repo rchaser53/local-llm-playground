@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "commit-staged-changes": {
+      "source": "/Users/rchaser53/Desktop/fx-data-analysis/.codex/skills/commit-staged-changes",
+      "sourceType": "local",
+      "computedHash": "733326714ff206122cc9a364ee111b9e490a6491a42d3a264898d6448a9b0e47"
+    }
+  }
+}
