@@ -199,11 +199,23 @@ func summarizeArticle(url string, cfg *Config) {
 	}
 
 	// 3. 結果の出力
+	timestamp := time.Now().Format("2006-01-02_15-04-05")
+	filename := fmt.Sprintf("summary_%s.txt", timestamp)
+
+	// ファイルに書き出し
+	err = os.WriteFile(filename, []byte(summary), 0644)
+	if err != nil {
+		fmt.Printf("\n⚠️ ファイルへの書き出しに失敗しました: %v\n", err)
+	} else {
+		fmt.Printf("\n✅ 要約結果をファイルに保存しました: %s\n", filename)
+	}
+
+	// コンソール出力
 	fmt.Println("\n=============== ===============")
 	fmt.Println("✅ 記事の要約結果（3行）")
 	fmt.Println("===============")
 	fmt.Println(summary)
-	fmt.Println("==============================================")
+	fmt.Println("================================================")
 }
 
 func main() {
